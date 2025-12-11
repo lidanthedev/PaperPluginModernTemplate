@@ -1,0 +1,5 @@
+name: PaperPluginModernTemplate
+version: '1.0'
+main: me.lidan.paperPluginModernTemplate.PaperPluginModernTemplate
+api-version: '1.19'
+authors: [ LidanTheDev ]
