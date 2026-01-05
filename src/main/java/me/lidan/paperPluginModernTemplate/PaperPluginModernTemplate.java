@@ -113,4 +113,8 @@ public final class PaperPluginModernTemplate extends JavaPlugin {
             }
         }
     }
+
+    public static PaperPluginModernTemplate getInstance() {
+        return JavaPlugin.getPlugin(PaperPluginModernTemplate.class);
+    }
 }
