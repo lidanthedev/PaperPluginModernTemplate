@@ -27,7 +27,10 @@ dependencies {
     compileOnly("io.github.revxrsal:lamp.common:4.0.0-rc.16")
     compileOnly("io.github.revxrsal:lamp.brigadier:4.0.0-rc.16")
     compileOnly("io.github.revxrsal:lamp.bukkit:4.0.0-rc.16")
-    implementation("dev.triumphteam:triumph-gui:3.1.13")
+    implementation("dev.triumphteam:triumph-gui:3.1.13") {
+        exclude(group = "com.google.code.gson", module = "gson")
+        exclude(group = "net.kyori")
+    }
     implementation("com.github.cryptomorin:XSeries:13.5.1")
 }
 
