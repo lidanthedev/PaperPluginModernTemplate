@@ -5,7 +5,9 @@ import me.lidan.paperPluginModernTemplate.commands.PaperTemplateCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-import revxrsal.commands.bukkit.BukkitCommandHandler;
+import revxrsal.commands.Lamp;
+import revxrsal.commands.bukkit.BukkitLamp;
+import revxrsal.commands.bukkit.actor.BukkitCommandActor;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -13,12 +15,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public final class PaperPluginModernTemplate extends JavaPlugin {
-    private BukkitCommandHandler commandHandler;
+    private Lamp.Builder<BukkitCommandActor> commandHandlerBuilder;
 
     @Override
     public void onEnable() {
         // Plugin startup logic
-        commandHandler = BukkitCommandHandler.create(this);
+        commandHandlerBuilder = BukkitLamp.builder(this);
         registerSerializer();
 
         saveDefaultResources();
@@ -48,8 +50,8 @@ public final class PaperPluginModernTemplate extends JavaPlugin {
 
     private void registerCommands() {
         // Register commands
+        Lamp<BukkitCommandActor> commandHandler = commandHandlerBuilder.build();
         commandHandler.register(new PaperTemplateCommand());
-        commandHandler.registerBrigadier();
     }
 
     private void registerEvents() {
