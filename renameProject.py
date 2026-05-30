@@ -40,12 +40,15 @@ def main() -> None:
     new_package_name = new_project_name[0].lower() + new_project_name[1:]
     old_command_name = "PaperTemplateCommand"
     new_command_name = new_project_name + "Command"
+    old_command_label = "papertemplate"
+    new_command_label = new_project_name.lower()
     # ask if user wants to proceed
     print(f"Old Project Name: {old_project_name}")
     print(f"New Project Name: {new_project_name}")
     print(f"Old Package Name: {old_package_name}")
     print(f"New Package Name: {new_package_name}")
     print(f"New Command Name: {new_command_name}")
+    print(f"New Command Label: {new_command_label}")
     proceed = input(f"Are you sure you want to proceed? (y/n): ").strip().lower()
     if proceed != 'y':
         print("Renaming cancelled.")
@@ -53,7 +56,8 @@ def main() -> None:
 
     # Replace occurrences in files
     words_to_update = [(old_package_name, new_package_name), (old_project_name, new_project_name),
-                       (old_command_name, new_command_name)]
+                       (old_command_name, new_command_name),
+                       (old_command_label, new_command_label)]
     files_to_update = ["settings.gradle", "build.gradle.kts",
                        f"src/main/java/me/lidan/{old_package_name}/{old_project_name}.java",
                        f"src/main/java/me/lidan/{old_package_name}/commands/{old_command_name}.java",
