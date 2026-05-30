@@ -54,7 +54,7 @@ def main() -> None:
     # Replace occurrences in files
     words_to_update = [(old_package_name, new_package_name), (old_project_name, new_project_name),
                        (old_command_name, new_command_name)]
-    files_to_update = ["settings.gradle", "build.gradle",
+    files_to_update = ["settings.gradle", "build.gradle.kts",
                        f"src/main/java/me/lidan/{old_package_name}/{old_project_name}.java",
                        f"src/main/java/me/lidan/{old_package_name}/commands/{old_command_name}.java",
                        f"src/main/resources/plugin.yml"]
